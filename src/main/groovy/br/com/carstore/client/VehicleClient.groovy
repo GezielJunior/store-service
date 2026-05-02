@@ -1,8 +1,8 @@
 package br.com.carstore.client
 
 import br.com.carstore.dto.output.VehicleDTO
-import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Get
+import io.micronaut.http.annotation.Header
 import io.micronaut.http.annotation.PathVariable
 import io.micronaut.http.client.annotation.Client
 
@@ -10,5 +10,5 @@ import io.micronaut.http.client.annotation.Client
 interface VehicleClient {
 
     @Get("/vehicles/{id}")
-    VehicleDTO findById(@PathVariable Long id)
+    VehicleDTO findById(@PathVariable Long id, @Header("Authorization") String authorization)
 }
